@@ -415,8 +415,6 @@ const EnhancedContactForm = withFormik({
     try {
       setSubmitting(true);
       console.log("submitttt");
-
-      debugger;
       let uploaddocuments = values.uploaddocuments;
 
       uploaddocuments.forEach((item) => {
@@ -467,9 +465,8 @@ const EnhancedContactForm = withFormik({
         formData.append(i, JSON.stringify(body[i]));
       }
       let uploadFiles = uploaddocuments.map((item) => {
-        return item.file;
+        formData.append("uploadFiles", item.file);
       });
-      formData.append("uploadFiles", uploadFiles);
       let resp = await axios.post(
         "http://localhost:3001/contact/add/",
         formData
