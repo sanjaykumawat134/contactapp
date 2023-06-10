@@ -48,11 +48,9 @@ router.post(
     uploadStorage.any("uploadFiles"),
     body("first_name").notEmpty().withMessage("first_name is required"),
     body("last_name").notEmpty().withMessage("last_name is required"),
-    body("email")
-      .notEmpty()
-      .withMessage("Email is required")
-      .isEmail()
-      .withMessage("Invalid email"),
+    body("email").notEmpty().withMessage("Email is required"),
+    // .isEmail()
+    // .withMessage("Invalid email"),
     body("dob")
       .notEmpty()
       .withMessage("dob is required")
